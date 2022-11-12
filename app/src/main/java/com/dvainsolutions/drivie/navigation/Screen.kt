@@ -1,0 +1,25 @@
+package com.dvainsolutions.drivie.navigation
+
+sealed class Screen(val route: String) {
+    object LoginScreen: Screen(route = "login_screen")
+    object SignupScreen: Screen(route = "signup_screen")
+    object VehicleSignupScreen: Screen(route = "vehicle_signup_screen")
+    object HomeScreen: Screen(route = "home_screen")
+    object ProfileScreen: Screen(route = "profile_screen")
+    object VehicleListScreen: Screen(route = "vehicle_list_screen")
+    object VehicleDetailsScreen: Screen(route = "vehicle_details_screen")
+    object StatisticsScreen: Screen(route = "statistics_screen")
+    object RefuelScreen: Screen(route = "refuel_screen")
+    object RefuelDetailsScreen: Screen(route = "refuel_details_screen")
+    object TripScreen: Screen(route = "trip_screen")
+    object TripDetailsScreen: Screen(route = "trip_details_screen")
+    object ServiceScreen: Screen(route = "service_screen")
+    object ConfirmServiceScreen: Screen(route = "confirm_service_screen")
+    object ServiceDetailsScreen: Screen(route = "service_details_screen")
+    object TripListScreen: Screen(route = "trip_list_screen")
+    object RefuelListScreen: Screen(route = "refuel_list_screen")
+    object ServiceListScreen: Screen(route = "service_list_screen")
+    object PartsListScreen: Screen(route = "parts_list_screen")
+    object OthersListScreen: Screen(route = "others_list_screen")
+    object OtherDataDetailsScreen: Screen(route = "other_data_details_screen")
+}

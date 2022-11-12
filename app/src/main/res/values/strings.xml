@@ -1,0 +1,140 @@
+<resources>
+    <string name="app_name">Drivie</string>
+
+    <string name="text_no_registration">Nincs még fiókod?</string>
+    <string name="text_registration">Regisztrálj!</string>
+    <string name="text_read_data_with_cam">Adatok beolvasása kamerával</string>
+
+    <string name="desc_email">Email</string>
+    <string name="desc_visibility">Láthatóság</string>
+    <string name="desc_profile_picture">Profilkép</string>
+    <string name="desc_vehicle_picture">Jármű kép</string>
+    <string name="desc_dropdown_items">További elemek</string>
+    <string name="desc_user_profile">User profile</string>
+    <string name="desc_add_item">Hozzáadás</string>
+
+    <string name="placeholder_email">E-mail</string>
+    <string name="placeholder_username">Felhasználónév</string>
+    <string name="placeholder_password">Jelszó</string>
+    <string name="placeholder_repeat_password">Jelszó ismét</string>
+    <string name="placeholder_refuel_place">Helyszín</string>
+    <string name="placeholder_refuel_fuel_type">Üzemanyag típusa</string>
+    <string name="placeholder_refuel_fuel_amount">Üzemanyag mennyisége (L)</string>
+    <string name="placeholder_refuel_total_cost">Összesen fizetett (Ft)</string>
+    <string name="placeholder_mileage">Kilométeróra-állás</string>
+    <string name="placeholder_date">Dátum</string>
+    <string name="placeholder_trip_start">Kiindulási helyszín</string>
+    <string name="placeholder_trip_end">Érkezési helyszín</string>
+    <string name="placeholder_trip_used_fuel_amount">Felhasznált üzemanyag (L)</string>
+    <string name="placeholder_service_name">Elvégzett munka</string>
+    <string name="placeholder_delete_job">Munka törlése</string>
+    <string name="placeholder_delete_part">Alkatrész törlése</string>
+    <string name="placeholder_cost">Költség</string>
+    <string name="placeholder_part_mileage">Megtett út (km)</string>
+    <string name="placeholder_vehicle">Jármű</string>
+
+    <string name="btn_login">Bejelentkezés</string>
+    <string name="btn_sign_up">Fiók regisztrálása</string>
+    <string name="btn_car_sign_up">Jármű hozzáadása</string>
+    <string name="btn_save_data">Adatok mentése</string>
+    <string name="btn_vehicle_stats">Statisztikák</string>
+    <string name="btn_vehicle_refuel">Tankolások</string>
+    <string name="btn_vehicle_trips">Utazások</string>
+    <string name="btn_vehicle_services">Szervíz</string>
+    <string name="btn_vehicle_parts">Alkatrészek</string>
+    <string name="btn_vehicle_other">Egyéb</string>
+    <string name="btn_save_trip">Utazás rögzítése</string>
+    <string name="btn_exit">Kilépés</string>
+    <string name="btn_confirm">Megerősít</string>
+    <string name="btn_cancel">Mégsem</string>
+    <string name="btn_save">Mentés</string>
+    <string name="btn_add_later">Később adom hozzá</string>
+    <string name="btn_gallery">Galéria</string>
+    <string name="btn_camera">Kamera</string>
+    <string name="btn_add_part">Alkatrész hozzáadása</string>
+    <string name="btn_yes">Igen</string>
+    <string name="btn_no">Nem</string>
+
+    <string name="vehicle_name">Jármű beceneve</string>
+    <string name="vehicle_licence">Rendszám</string>
+    <string name="vehicle_brand">Márka</string>
+    <string name="vehicle_model">Modell</string>
+    <string name="vehicle_year">Évjárat</string>
+    <string name="vehicle_engine">Motor</string>
+    <string name="vehicle_mileage">Futásteljesítmény (km)</string>
+    <string name="vehicle_consumption">Átlagos fogyasztás (l/km)</string>
+    <string name="vehicle_fuel_type">Üzemanyag típusa</string>
+    <string name="vehicle_fuel_size">Üzemanyagtank mérete (l)</string>
+    <string name="vehicle_emission_type">Környezetvédelmi besorolás</string>
+    <string name="vehicle_mot">Legutóbbi műszaki vizsga ideje</string>
+    <string name="vehicle_insurance">Biztosítás</string>
+    <string name="vehicle_part_replacement_time">Legutóbbi csere ideje</string>
+    <string name="vehicle_part_wear">Alkatrész használtsága</string>
+    <string name="vehicle_parts_chart_title">Alkatrészek futásteljesítménye</string>
+    <string name="vehicle_parts_wear_date">Alkatrész várható elhasználódása</string>
+    <string name="vehicle_parts_wear_cant_calculate">Túl kevés adat áll rendelkezésre a számításhoz.</string>
+
+    <string name="unknown_error">Ismeretlen hiba történt.</string>
+    <string name="error_email">A megadott e-mail hibás.</string>
+    <string name="error_empty_pass">A jelszó nem lehet üres!</string>
+    <string name="error_password_match">A jelszavak nem egyeznek.</string>
+    <string name="error_password">A beírt jelszó hibás.</string>
+    <string name="error_blank_field">A mező nem lehet üres!</string>
+    <string name="error_only_digits">A mező csak számokat tartalmazhat!</string>
+    <string name="error_fuel_type">A mező rossz értéket tartalmaz!</string>
+    <string name="error_duplicate_part_in_list">Az alkatrészt csak egyszer adhatod hozzá!</string>
+    <string name="error_choose_part">Válassz egy alkatrészt!</string>
+    <string name="error_duplicate_job_in_list">Az adott munkát csak egyszer adhatod hozzá!</string>
+    <string name="error_choose_job">Válassz egy munkát!</string>
+    <string name="error_getting_vehicles">Hiba történt a járművek lekérdezése közben.</string>
+    <string name="error_getting_vehicle">Hiba történt a jármű adatainak lekérdezése közben.</string>
+    <string name="error_getting_data">Hiba történt az adatok lekérdezése közben.</string>
+    <string name="error_same_locations">A kiindulási- és érkezési helyszín nem lehet ugyanaz!</string>
+    <string name="error_no_data">Nem állnak rendelkezésre adatok</string>
+    <string name="error_text_recognition">Hiba történt a kép feldolgozása közben</string>
+
+    <string name="card_cars">Járművek</string>
+    <string name="card_tanking">Tankolás</string>
+    <string name="card_service">Szervíz</string>
+    <string name="card_trip">Utazás</string>
+
+    <string name="app_bar_desc_navigation">Vissza</string>
+    <string name="app_bar_desc_action">Mégsem</string>
+    <string name="app_bar_title_refuel">Tankolás rögzítése</string>
+    <string name="app_bar_title_service">Szervíz rögzítése</string>
+    <string name="app_bar_title_others">Egyéb adatok</string>
+    <string name="app_bar_title_service_confirm">Szervíz megerősítése</string>
+    <string name="app_bar_title_trips">Utazások</string>
+    <string name="app_bar_title_refuels">Tankolási előzmény</string>
+    <string name="app_bar_title_service_list">Szervíz előzmény</string>
+    <string name="app_bar_title_parts_list">Alkatrészek</string>
+    <string name="app_bar_title_trip_details">Utazás összegzése</string>
+    <string name="app_bar_title_service_details">Szervíz összegzése</string>
+    <string name="app_bar_title_add_vehicle">Új jármű hozzáadása</string>
+    <string name="app_bar_title_refuel_details">Tankolás összegzése</string>
+    <string name="app_bar_title_vehicles">Járművek</string>
+    <string name="app_bar_title_selected_vehicle">Választott jármű</string>
+    <string name="app_bar_title_record_trip">Utazás rögzítése</string>
+    <string name="app_bar_title_statistics">Jármű statisztikák</string>
+
+    <string name="fuel_type_diesel">Dízel</string>
+    <string name="fuel_type_petrol">Benzin</string>
+    <string name="fuel_type_electric">Elektromos</string>
+    <string name="fuel_type_lpg">LPG</string>
+    <string name="fuel_type_hybrid">Hibrid</string>
+    <string name="fuel_type_hybeg">HIB/E/G</string>
+    <string name="fuel_type_hybeb">HIB/E/B</string>
+
+    <string name="permission_msg_camera">A kamera használatához engedélyezd a hozzáférést!</string>
+
+    <string name="dialog_title_unsaved_data">Nem mentett adatok</string>
+    <string name="dialog_description_msg">Biztosan ki akarsz lépni mentés nélkül?</string>
+    <string name="avg_title_consumption">Átlagos fogyasztás</string>
+    <string name="avg_title_refuel">Átlagos tankolás</string>
+    <string name="avg_title_distance">Átlagos utazás</string>
+    <string name="avg_title_refuel_cost">Tankolási költség</string>
+
+    <string name="list_title_jobs">Elvégzett munkák</string>
+    <string name="list_title_parts">Cserélt alkatrészek</string>
+
+</resources>

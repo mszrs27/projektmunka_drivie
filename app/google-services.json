@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604379942908",
+    "project_id": "drivie-18ac7",
+    "storage_bucket": "drivie-18ac7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604379942908:android:3cccf12a591d87dc206c79",
+        "android_client_info": {
+          "package_name": "com.dvainsolutions.drivie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604379942908-kn30jo3qqilhv8v5viv500k0ccrea7j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQTbqI10f4fmQsHCZ43p2rQoXLAoo2xX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604379942908-kn30jo3qqilhv8v5viv500k0ccrea7j7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
