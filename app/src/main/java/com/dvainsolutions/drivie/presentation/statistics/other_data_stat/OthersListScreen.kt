@@ -66,7 +66,7 @@ fun OthersListScreen(navController: NavHostController) {
         ) {
             items(items = list) {
                 OtherCard(it, onClick = {
-                    navController.navigate(Screen.OtherDataDetailsScreen.route)
+                    //navController.navigate(Screen.OtherDataDetailsScreen.route)
                 })
             }
         }

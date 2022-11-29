@@ -173,7 +173,7 @@ fun VehicleSignupScreen(
                             placeholder = painterResource(R.drawable.ic_car),
                             error = painterResource(R.drawable.ic_car),
                             contentDescription = stringResource(R.string.desc_profile_picture),
-                            contentScale = ContentScale.Fit,
+                            contentScale = ContentScale.FillWidth,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(160.dp)

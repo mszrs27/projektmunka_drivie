@@ -11,6 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -191,11 +192,11 @@ fun VehicleDetailsScreen(
                                 placeholder = painterResource(R.drawable.ic_car),
                                 error = painterResource(R.drawable.ic_car),
                                 contentDescription = stringResource(R.string.desc_profile_picture),
-                                contentScale = ContentScale.Fit,
+                                contentScale = ContentScale.FillWidth,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(160.dp)
-                                    .background(DrivieGray)
+                                    .background(Color.White)
                                     .clickable(onClick = {
                                         coroutineScope.launch {
                                             permissionsState.launchPermissionRequest()
