@@ -134,7 +134,7 @@ fun StatisticsScreen(
                     modifier = Modifier.padding(top = 10.dp),
                     textResource = R.string.btn_vehicle_other,
                     onClick = {
-                        navController.navigate(Screen.OthersListScreen.route)
+                        navController.navigate(Screen.MiscDataListScreen.route)
                     }
                 )
             }

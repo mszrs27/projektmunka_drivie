@@ -25,6 +25,8 @@
     <string name="placeholder_refuel_total_cost">Összesen fizetett (Ft)</string>
     <string name="placeholder_mileage">Kilométeróra-állás</string>
     <string name="placeholder_date">Dátum</string>
+    <string name="placeholder_start_date">Érvényesség kezdete</string>
+    <string name="placeholder_end_date">Érvényesség vége</string>
     <string name="placeholder_trip_start">Kiindulási helyszín</string>
     <string name="placeholder_trip_end">Érkezési helyszín</string>
     <string name="placeholder_trip_used_fuel_amount">Felhasznált üzemanyag (L)</string>
@@ -122,6 +124,7 @@
     <string name="app_bar_title_record_trip">Utazás rögzítése</string>
     <string name="app_bar_title_statistics">Jármű statisztikák</string>
     <string name="app_bar_title_modify_profile">Profil módosítása</string>
+    <string name="app_bar_title_misc_details">%s adatok</string>
 
     <string name="fuel_type_diesel">Dízel</string>
     <string name="fuel_type_petrol">Benzin</string>
@@ -148,8 +151,11 @@
     <string name="misc_type_insurance">Biztosítás</string>
     <string name="misc_type_vignette">Matrica</string>
     <string name="misc_type_weight_tax">Súlyadó</string>
+    <string name="misc_insurance_type">Biztosítás típusa</string>
     <string name="misc_insurance_casco">CASCO</string>
     <string name="misc_insurance_kgfb">Kötelező biztosítás</string>
+    <string name="misc_vignette_vehicle_type">Autó típusa</string>
+    <string name="misc_vignette_regional_type">Terület típusa</string>
     <string name="misc_vignette_regional_type_country_weekly">Országos - Heti (10 napos)</string>
     <string name="misc_vignette_regional_type_country_monthly">Országos - Havi</string>
     <string name="misc_vignette_regional_type_country_yearly">Országos - Éves</string>

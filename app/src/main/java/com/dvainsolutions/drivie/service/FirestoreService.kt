@@ -28,4 +28,5 @@ interface FirestoreService {
     fun getAvgDataFromTrips(carId: String, onResult: (List<String?>) -> Unit, onError: (Throwable?) -> Unit)
     fun saveMiscData(miscData: MiscData, carId: String, onResult: (Throwable?) -> Unit)
     fun getAllMiscData(carId: String, onResult: (List<MiscData>?) -> Unit, onError: (Throwable?) -> Unit)
+    fun getMiscDetails(carId: String, miscId: String, onResult: (MiscData?) -> Unit, onError: (Throwable?) -> Unit)
 }

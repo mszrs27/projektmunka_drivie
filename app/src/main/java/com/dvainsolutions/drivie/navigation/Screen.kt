@@ -20,6 +20,6 @@ sealed class Screen(val route: String) {
     object RefuelListScreen: Screen(route = "refuel_list_screen")
     object ServiceListScreen: Screen(route = "service_list_screen")
     object PartsListScreen: Screen(route = "parts_list_screen")
-    object OthersListScreen: Screen(route = "others_list_screen")
-    object OtherDataDetailsScreen: Screen(route = "other_data_details_screen")
+    object MiscDataListScreen: Screen(route = "misc_data_list_screen")
+    object MiscDataDetailsScreen: Screen(route = "misc_data_details_screen")
 }

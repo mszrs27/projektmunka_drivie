@@ -8,7 +8,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.dvainsolutions.drivie.presentation.home.HomeScreen
 import com.dvainsolutions.drivie.presentation.login.LoginScreen
-import com.dvainsolutions.drivie.presentation.other_data.OtherDataDetailsScreen
 import com.dvainsolutions.drivie.presentation.profile.ProfileScreen
 import com.dvainsolutions.drivie.presentation.refuel.RefuelScreen
 import com.dvainsolutions.drivie.presentation.refuel.details.RefuelDetailsScreen
@@ -19,6 +18,7 @@ import com.dvainsolutions.drivie.presentation.signup.SignupScreen
 import com.dvainsolutions.drivie.presentation.signup.vehicle_signup.VehicleSignupScreen
 import com.dvainsolutions.drivie.presentation.statistics.StatisticsScreen
 import com.dvainsolutions.drivie.presentation.statistics.misc_data_stat.MiscDataListScreen
+import com.dvainsolutions.drivie.presentation.statistics.misc_data_stat.details.MiscDetailsScreen
 import com.dvainsolutions.drivie.presentation.statistics.part_stat.PartsListScreen
 import com.dvainsolutions.drivie.presentation.statistics.refuel_stat.RefuelListScreen
 import com.dvainsolutions.drivie.presentation.statistics.service_stat.ServiceListScreen
@@ -116,11 +116,14 @@ fun SetupNavGraph(
         composable(route = Screen.PartsListScreen.route) {
             PartsListScreen(navController)
         }
-        composable(route = Screen.OthersListScreen.route) {
+        composable(route = Screen.MiscDataListScreen.route) {
             MiscDataListScreen(navController)
         }
-        composable(route = Screen.OtherDataDetailsScreen.route) {
-            OtherDataDetailsScreen(navController)
+        composable(
+            route = "${Screen.MiscDataDetailsScreen.route}/{miscId}",
+            arguments = listOf(navArgument("miscId") { type = NavType.StringType })
+        ) {
+            MiscDetailsScreen(navController, miscId = it.arguments?.getString("miscId"))
         }
         composable(route = Screen.ServiceScreen.route) {
             ServiceScreen(navController)

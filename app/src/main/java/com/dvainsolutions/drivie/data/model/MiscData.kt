@@ -8,7 +8,8 @@ import com.google.firebase.Timestamp
 data class MiscData(
     val insurance: MiscInsurance? = null,
     val vignette: MiscVignette? = null,
-    val weightTax: MiscWeightTax? = null
+    val weightTax: MiscWeightTax? = null,
+    var id: String = ""
 )
 
 data class MiscInsurance(
@@ -56,7 +57,7 @@ data class MiscWeightTax(
     val price: Int? = 0
 )
 
-enum class MiscTypeList(private val typeId: Int) {
+enum class MiscType(private val typeId: Int) {
     INSURANCE(R.string.misc_type_insurance),
     VIGNETTE(R.string.misc_type_vignette),
     WEIGHT_TAX(R.string.misc_type_weight_tax);

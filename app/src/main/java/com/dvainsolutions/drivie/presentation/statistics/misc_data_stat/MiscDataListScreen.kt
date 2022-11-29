@@ -1,9 +1,6 @@
 package com.dvainsolutions.drivie.presentation.statistics.misc_data_stat
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
@@ -24,6 +21,7 @@ import com.dvainsolutions.drivie.R
 import com.dvainsolutions.drivie.common.custom_composables.CardListItem
 import com.dvainsolutions.drivie.common.custom_composables.CustomAppBar
 import com.dvainsolutions.drivie.data.model.MiscData
+import com.dvainsolutions.drivie.navigation.Screen
 
 @Composable
 fun MiscDataListScreen(
@@ -36,11 +34,15 @@ fun MiscDataListScreen(
         AddMiscDataDialog(
             viewModel = viewModel,
             onConfirmFunction = {
-                viewModel.saveMiscData(onResult = {
-                    showDialog = false
-                })
+                viewModel.saveMiscData(
+                    onResult = {
+                        viewModel.getAllMiscData()
+                        showDialog = false
+                    })
             },
-            onDismissFunction = { showDialog = false}
+            onDismissFunction = {
+                showDialog = false
+            }
         )
     }
 
@@ -61,7 +63,9 @@ fun MiscDataListScreen(
         }
     ) {
         if (viewModel.uiState.isLoading) {
-            CircularProgressIndicator()
+            Box(modifier = Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
         } else {
             if (viewModel.miscDataList.isEmpty()) {
                 Column(
@@ -81,7 +85,7 @@ fun MiscDataListScreen(
                 ) {
                     items(items = viewModel.miscDataList) { misc ->
                         CardListItem(title = getMiscTitle(misc), onClick = {
-                            //navController.navigate(Screen.OtherDataDetailsScreen.route)
+                            navController.navigate("${Screen.MiscDataDetailsScreen.route}/${misc.id}")
                         })
                     }
                 }

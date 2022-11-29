@@ -515,7 +515,9 @@ class FirestoreServiceImpl @Inject constructor() : FirestoreService {
             .collection(MISC_DATA_SUB_DOCUMENT)
             .add(miscData)
             .addOnCompleteListener { task ->
-               onResult(task.exception)
+                task.result.update("id", task.result.id).addOnCompleteListener {
+                    onResult(task.exception)
+                }
             }
     }
 
@@ -539,6 +541,34 @@ class FirestoreServiceImpl @Inject constructor() : FirestoreService {
                         miscDataList.add(document.toObject(MiscData::class.java))
                     }
                     onResult(miscDataList)
+                } else {
+                    onError(task.exception)
+                }
+            }
+    }
+
+    override fun getMiscDetails(
+        carId: String,
+        miscId: String,
+        onResult: (MiscData?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        firestore
+            .collection(USERS_DOCUMENT)
+            .document(Firebase.auth.currentUser?.uid ?: "")
+            .collection(VEHICLES_SUB_DOCUMENT)
+            .document(carId)
+            .collection(MISC_DATA_SUB_DOCUMENT)
+            .document(miscId)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    if (task.result != null) {
+                        val result = task.result.toObject(MiscData::class.java)
+                        if (result != null) {
+                            onResult(result)
+                        }
+                    }
                 } else {
                     onError(task.exception)
                 }

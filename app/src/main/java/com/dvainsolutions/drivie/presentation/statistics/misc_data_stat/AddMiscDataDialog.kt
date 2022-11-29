@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -23,7 +22,7 @@ import com.dvainsolutions.drivie.common.custom_composables.CustomSpinner
 import com.dvainsolutions.drivie.common.custom_composables.CustomTextField
 import com.dvainsolutions.drivie.common.custom_composables.DateTimePicker
 import com.dvainsolutions.drivie.data.model.InsuranceType
-import com.dvainsolutions.drivie.data.model.MiscTypeList
+import com.dvainsolutions.drivie.data.model.MiscType
 import com.dvainsolutions.drivie.data.model.VignetteRegionalType
 import com.dvainsolutions.drivie.data.model.VignetteVehicleType
 import com.dvainsolutions.drivie.utils.NoRippleInteractionSource
@@ -32,16 +31,11 @@ import com.dvainsolutions.drivie.utils.NoRippleInteractionSource
 @Composable
 fun AddMiscDataDialog(
     viewModel: MiscDataViewModel,
-    positiveButtonText: String = stringResource(R.string.btn_save),
     negativeButtonText: String = stringResource(id = R.string.btn_cancel),
     onConfirmFunction: () -> Unit,
     onDismissFunction: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
-
-    LaunchedEffect(true) {
-        viewModel.getVehicleList()
-    }
 
     AlertDialog(
         properties = DialogProperties(usePlatformDefaultWidth = false),
@@ -75,13 +69,13 @@ fun AddMiscDataDialog(
                     CircularProgressIndicator()
                 Spacer(modifier = Modifier.height(10.dp))
                 CustomSpinner(
-                    dataList = MiscTypeList.values().map { it.getLabel(context) }
+                    dataList = MiscType.values().map { it.getLabel(context) }
                         .toList(),
                     onSelected = viewModel::onMiscTypeChange
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 when (viewModel.miscType) {
-                    MiscTypeList.INSURANCE.getLabel(context) -> {
+                    MiscType.INSURANCE.getLabel(context) -> {
                         CustomSpinner(
                             dataList = InsuranceType.values().map { it.getLabel(context) }
                                 .toList(),
@@ -92,7 +86,7 @@ fun AddMiscDataDialog(
                         Spacer(modifier = Modifier.height(10.dp))
                         DateTextField()
                     }
-                    MiscTypeList.VIGNETTE.getLabel(context) -> {
+                    MiscType.VIGNETTE.getLabel(context) -> {
                         CustomSpinner(
                             dataList = VignetteVehicleType.values().toList(),
                             onSelected = viewModel::onVignetteVehicleTypeChange
@@ -105,16 +99,21 @@ fun AddMiscDataDialog(
                         Spacer(modifier = Modifier.height(10.dp))
                         PriceTextField()
                         Spacer(modifier = Modifier.height(10.dp))
-                        DateTextField()
+                        DateTimePicker(
+                            time = viewModel.uiState.date,
+                            placeholderRes = R.string.placeholder_start_date,
+                            onTimeChange = viewModel::onDateChange,
+                            placeholderColor = MaterialTheme.colors.onSurface.copy(ContentAlpha.medium)
+                        )
                         Spacer(modifier = Modifier.height(10.dp))
                         DateTimePicker(
                             time = viewModel.uiState.endDate,
-                            placeholderRes = R.string.placeholder_date,
+                            placeholderRes = R.string.placeholder_end_date,
                             onTimeChange = viewModel::onEndDateChange,
                             placeholderColor = MaterialTheme.colors.onSurface.copy(ContentAlpha.medium)
                         )
                     }
-                    MiscTypeList.WEIGHT_TAX.getLabel(context) -> {
+                    MiscType.WEIGHT_TAX.getLabel(context) -> {
                         PriceTextField()
                         Spacer(modifier = Modifier.height(10.dp))
                         DateTextField()

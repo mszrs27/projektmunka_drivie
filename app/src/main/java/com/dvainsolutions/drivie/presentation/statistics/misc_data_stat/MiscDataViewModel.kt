@@ -1,6 +1,7 @@
 package com.dvainsolutions.drivie.presentation.statistics.misc_data_stat
 
 import android.app.Application
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -41,9 +42,10 @@ class MiscDataViewModel @Inject constructor(
     var miscDataList = mutableStateListOf<MiscData>()
         private set
 
-    var miscType by mutableStateOf(MiscTypeList.values().map { it.getLabel(app) }.first())
+    var miscType by mutableStateOf(MiscType.values().map { it.getLabel(app) }.first())
 
     init {
+        getVehicleList()
         getAllMiscData()
     }
 
@@ -53,8 +55,8 @@ class MiscDataViewModel @Inject constructor(
             price = "",
             date = "",
             insuranceType = "",
-            vehicleType = if (value == MiscTypeList.VIGNETTE.getLabel(app)) VignetteVehicleType.values().first().name else "",
-            regionalType = if (value == MiscTypeList.VIGNETTE.getLabel(app)) VignetteRegionalType.values().first().getLabel(app) else "",
+            vehicleType = if (value == MiscType.VIGNETTE.getLabel(app)) VignetteVehicleType.values().first().name else "",
+            regionalType = if (value == MiscType.VIGNETTE.getLabel(app)) VignetteRegionalType.values().first().getLabel(app) else "",
             endDate = ""
         )
     }
@@ -84,8 +86,9 @@ class MiscDataViewModel @Inject constructor(
         uiState = uiState.copy(endDate = value.toDateString())
     }
 
-    private fun getAllMiscData() {
+    fun getAllMiscData() {
         viewModelScope.launch {
+            if (miscDataList.isNotEmpty()) miscDataList.clear()
             val preferences = dataStore.data.first()
             preferences[stringPreferencesKey(Constants.SELECTED_CAR_ID)]?.let { carId ->
                 uiState = uiState.copy(isLoading = true)
@@ -111,7 +114,7 @@ class MiscDataViewModel @Inject constructor(
         uiState = uiState.copy(isLoading = true)
 
         val miscData = when (miscType) {
-            MiscTypeList.INSURANCE.getLabel(app) -> {
+            MiscType.INSURANCE.getLabel(app) -> {
                 MiscData(
                     insurance = MiscInsurance(
                         type = uiState.insuranceType,
@@ -120,7 +123,7 @@ class MiscDataViewModel @Inject constructor(
                     )
                 )
             }
-            MiscTypeList.VIGNETTE.getLabel(app) -> {
+            MiscType.VIGNETTE.getLabel(app) -> {
                 MiscData(
                    vignette = MiscVignette(
                        vehicleType = uiState.vehicleType,
@@ -131,7 +134,7 @@ class MiscDataViewModel @Inject constructor(
                    )
                 )
             }
-            MiscTypeList.WEIGHT_TAX.getLabel(app) -> {
+            MiscType.WEIGHT_TAX.getLabel(app) -> {
                 MiscData(
                     weightTax = MiscWeightTax(
                         date = Timestamp(uiState.date.toDate() ?: Calendar.getInstance().time),
@@ -156,8 +159,9 @@ class MiscDataViewModel @Inject constructor(
         }
     }
 
-    fun getVehicleList() {
+    private fun getVehicleList() {
         firestoreService.getVehicleNameListWithId(onResult = {
+            Log.e("ALMA", "getVehicleList: $it", )
             vehicleList = it
             uiState = uiState.copy(vehicle = it.keys.first())
             saveCarIdToDataStore()
