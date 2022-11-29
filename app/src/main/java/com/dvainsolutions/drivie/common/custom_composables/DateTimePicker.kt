@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import java.util.*
 
 @Composable
-fun DateTimePicker(time: String?, onTimeChange: (time: Calendar) -> Unit, placeholderRes: Int, placeholderColor: Color = Color.Gray.copy(alpha = 0.7f)) {
+fun DateTimePicker(time: String?, onTimeChange: (time: Calendar) -> Unit,  label: @Composable() (() -> Unit)? = null,  placeholderRes: Int? = null, placeholderColor: Color = Color.Gray.copy(alpha = 0.7f)) {
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
     calendar.time = Date()
@@ -31,7 +31,8 @@ fun DateTimePicker(time: String?, onTimeChange: (time: Calendar) -> Unit, placeh
 
     CustomTextField(
         modifier = Modifier.fillMaxWidth(),
-        placeholder = { Text(text = stringResource(id = placeholderRes), color = placeholderColor) },
+        placeholder = { if (placeholderRes != null) Text(text = stringResource(id = placeholderRes), color = placeholderColor) },
+        label = label,
         text = time,
         enabled = false,
         onClickableFunction = {

@@ -7,5 +7,7 @@ interface AccountService {
     fun authenticate(email: String, password: String, onResult: (Throwable?) -> Unit)
     fun isUserLoggedIn(): Boolean
     fun getCurrentUser(): FirebaseUser?
+    fun changeUserData(newEmail: String?,oldPassword: String?, newPassword: String?, onResult: () -> Unit, onError: (Throwable) -> Unit)
+    fun logoutUser()
     fun setAuthStateListener()
 }

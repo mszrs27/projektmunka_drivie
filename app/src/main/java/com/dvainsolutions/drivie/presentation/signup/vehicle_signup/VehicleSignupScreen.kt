@@ -310,7 +310,7 @@ fun VehicleSignupScreen(
                         Spacer(modifier = Modifier.height(20.dp))
                         CustomTextField(
                             modifier = Modifier.fillMaxWidth(),
-                            text = uiState.fuelSize,
+                            text = uiState.consumption,
                             onValueChangeFunction = viewModel::onConsumptionChange,
                             placeholder = { Text(text = stringResource(id = AppRes.vehicle_consumption)) },
                             keyboardOptions = KeyboardOptions(

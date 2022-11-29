@@ -7,6 +7,7 @@ object Constants {
     const val REFUELINGS_SUB_DOCUMENT = "refuelings"
     const val TRIPS_SUB_DOCUMENT = "trips"
     const val SERVICES_SUB_DOCUMENT = "services"
+    const val MISC_DATA_SUB_DOCUMENT = "misc"
 
     // Storage path names
     const val VEHICLE_FOLDER = "vehicle_pictures"

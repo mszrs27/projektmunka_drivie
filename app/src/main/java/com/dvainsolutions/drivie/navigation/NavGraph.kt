@@ -18,7 +18,7 @@ import com.dvainsolutions.drivie.presentation.service.details.ServiceDetailsScre
 import com.dvainsolutions.drivie.presentation.signup.SignupScreen
 import com.dvainsolutions.drivie.presentation.signup.vehicle_signup.VehicleSignupScreen
 import com.dvainsolutions.drivie.presentation.statistics.StatisticsScreen
-import com.dvainsolutions.drivie.presentation.statistics.other_data_stat.OthersListScreen
+import com.dvainsolutions.drivie.presentation.statistics.misc_data_stat.MiscDataListScreen
 import com.dvainsolutions.drivie.presentation.statistics.part_stat.PartsListScreen
 import com.dvainsolutions.drivie.presentation.statistics.refuel_stat.RefuelListScreen
 import com.dvainsolutions.drivie.presentation.statistics.service_stat.ServiceListScreen
@@ -117,7 +117,7 @@ fun SetupNavGraph(
             PartsListScreen(navController)
         }
         composable(route = Screen.OthersListScreen.route) {
-            OthersListScreen(navController)
+            MiscDataListScreen(navController)
         }
         composable(route = Screen.OtherDataDetailsScreen.route) {
             OtherDataDetailsScreen(navController)

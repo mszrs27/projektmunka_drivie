@@ -26,7 +26,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import com.dvainsolutions.drivie.R.string as AppRes
 
 @Composable
-fun EmailField(value: String, onNewValue: (String) -> Unit, modifier: Modifier = Modifier) {
+fun EmailField(value: String?, onNewValue: (String) -> Unit, modifier: Modifier = Modifier) {
     val focusManager = LocalFocusManager.current
 
     CustomTextField(

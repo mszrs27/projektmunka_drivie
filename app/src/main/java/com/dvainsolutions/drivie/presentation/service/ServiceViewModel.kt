@@ -1,7 +1,6 @@
 package com.dvainsolutions.drivie.presentation.service
 
 import android.app.Application
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
@@ -208,7 +207,6 @@ class ServiceViewModel @Inject constructor(
                 it[stringPreferencesKey(Constants.SELECTED_CAR_ID)] =
                     vehicleList[uiState.value.vehicle].toString()
             }
-            Log.e("ALMA", "onVehicleChange: ${vehicleList[uiState.value.vehicle]}")
         }
     }
 }

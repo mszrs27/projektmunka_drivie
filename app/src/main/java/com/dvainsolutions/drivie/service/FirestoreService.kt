@@ -3,11 +3,10 @@ package com.dvainsolutions.drivie.service
 import com.dvainsolutions.drivie.data.model.*
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 
 interface FirestoreService {
     fun createUser(user: User, onResult: (Throwable?) -> Unit)
-    fun getCurrentUserDocument(onResult: (DocumentSnapshot) -> Unit, onError: (Throwable?) -> Unit)
+    fun getCurrentUserData(onResult: (User) -> Unit, onError: (Throwable?) -> Unit)
     fun updateUser(userId: String, value: HashMap<String, Any>, onResult: (Throwable?) -> Unit)
     fun createVehicle(userId: String, value: Vehicle, onResult: (Task<DocumentReference>) -> Unit)
     fun updateVehicle(userId: String, vehicleId: String, value: HashMap<String, Any>, onResult: (Throwable?) -> Unit)
@@ -27,4 +26,6 @@ interface FirestoreService {
     fun getServices(carId: String, onResult: (List<Service>?) -> Unit, onError: (Throwable?) -> Unit)
     fun getServiceDetails(carId: String, serviceId: String, onResult: (Service) -> Unit, onError: (Throwable?) -> Unit)
     fun getAvgDataFromTrips(carId: String, onResult: (List<String?>) -> Unit, onError: (Throwable?) -> Unit)
+    fun saveMiscData(miscData: MiscData, carId: String, onResult: (Throwable?) -> Unit)
+    fun getAllMiscData(carId: String, onResult: (List<MiscData>?) -> Unit, onError: (Throwable?) -> Unit)
 }

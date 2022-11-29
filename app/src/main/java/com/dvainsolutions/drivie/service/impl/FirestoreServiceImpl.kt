@@ -2,6 +2,7 @@ package com.dvainsolutions.drivie.service.impl
 
 import com.dvainsolutions.drivie.data.model.*
 import com.dvainsolutions.drivie.service.FirestoreService
+import com.dvainsolutions.drivie.utils.Constants.MISC_DATA_SUB_DOCUMENT
 import com.dvainsolutions.drivie.utils.Constants.REFUELINGS_SUB_DOCUMENT
 import com.dvainsolutions.drivie.utils.Constants.SERVICES_SUB_DOCUMENT
 import com.dvainsolutions.drivie.utils.Constants.TRIPS_SUB_DOCUMENT
@@ -10,7 +11,6 @@ import com.dvainsolutions.drivie.utils.Constants.VEHICLES_SUB_DOCUMENT
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -30,14 +30,17 @@ class FirestoreServiceImpl @Inject constructor() : FirestoreService {
             .addOnCompleteListener { onResult(it.exception) }
     }
 
-    override fun getCurrentUserDocument(
-        onResult: (DocumentSnapshot) -> Unit,
+    override fun getCurrentUserData(
+        onResult: (User) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
         firestore.collection(USERS_DOCUMENT).document(Firebase.auth.currentUser?.uid!!).get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    onResult(it.result)
+                    val result = it.result.toObject(User::class.java)
+                    if (result != null) {
+                        onResult(result)
+                    }
                 } else {
                     onError(it.exception)
                 }
@@ -501,5 +504,44 @@ class FirestoreServiceImpl @Inject constructor() : FirestoreService {
             },
             onError = onError
         )
+    }
+
+    override fun saveMiscData(miscData: MiscData, carId: String, onResult: (Throwable?) -> Unit) {
+        firestore
+            .collection(USERS_DOCUMENT)
+            .document(Firebase.auth.currentUser?.uid ?: "")
+            .collection(VEHICLES_SUB_DOCUMENT)
+            .document(carId)
+            .collection(MISC_DATA_SUB_DOCUMENT)
+            .add(miscData)
+            .addOnCompleteListener { task ->
+               onResult(task.exception)
+            }
+    }
+
+    override fun getAllMiscData(
+        carId: String,
+        onResult: (List<MiscData>?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        val miscDataList: MutableList<MiscData> = mutableListOf()
+
+        firestore
+            .collection(USERS_DOCUMENT)
+            .document(Firebase.auth.currentUser?.uid ?: "")
+            .collection(VEHICLES_SUB_DOCUMENT)
+            .document(carId)
+            .collection(MISC_DATA_SUB_DOCUMENT)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    for (document in task.result) {
+                        miscDataList.add(document.toObject(MiscData::class.java))
+                    }
+                    onResult(miscDataList)
+                } else {
+                    onError(task.exception)
+                }
+            }
     }
 }

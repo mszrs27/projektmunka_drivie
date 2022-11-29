@@ -2,6 +2,7 @@ package com.dvainsolutions.drivie.presentation.home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.dvainsolutions.drivie.common.snackbar.SnackbarManager.onError
 import com.dvainsolutions.drivie.service.FirestoreService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,10 +20,10 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun getCurrentUserName() {
-        firestoreService.getCurrentUserDocument(onResult = {
-            userName.value = it.getString("name")
-        }, onError = {
-
+        firestoreService.getCurrentUserData(onResult = {
+            userName.value = it.name
+        }, onError = { err ->
+            err?.let { it -> onError(it) }
         })
     }
 }

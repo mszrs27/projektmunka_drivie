@@ -7,12 +7,13 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreHoriz
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -52,7 +53,7 @@ fun HomeScreen(
                         navController.navigate(Screen.ProfileScreen.route)
                     }) {
                         Icon(
-                            imageVector = Icons.Default.MoreHoriz,
+                            imageVector = Icons.Default.AccountCircle,
                             contentDescription = stringResource(AppRes.desc_user_profile),
                             modifier = Modifier.size(32.dp)
                         )
@@ -71,7 +72,8 @@ fun HomeScreen(
                             if (name.isNotEmpty()) {
                                 Text(
                                     text = "Szia, ${name}!",
-                                    style = MaterialTheme.typography.h2
+                                    style = MaterialTheme.typography.h2,
+                                    textAlign = TextAlign.Center
                                 )
                             }
                         }

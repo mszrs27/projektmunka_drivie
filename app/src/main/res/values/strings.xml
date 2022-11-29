@@ -16,6 +16,8 @@
     <string name="placeholder_email">E-mail</string>
     <string name="placeholder_username">Felhasználónév</string>
     <string name="placeholder_password">Jelszó</string>
+    <string name="placeholder_old_password">Jelenlegi jelszó</string>
+    <string name="placeholder_new_password">Új jelszó</string>
     <string name="placeholder_repeat_password">Jelszó ismét</string>
     <string name="placeholder_refuel_place">Helyszín</string>
     <string name="placeholder_refuel_fuel_type">Üzemanyag típusa</string>
@@ -30,6 +32,7 @@
     <string name="placeholder_delete_job">Munka törlése</string>
     <string name="placeholder_delete_part">Alkatrész törlése</string>
     <string name="placeholder_cost">Költség</string>
+    <string name="placeholder_paid_amount">Befizetett összeg</string>
     <string name="placeholder_part_mileage">Megtett út (km)</string>
     <string name="placeholder_vehicle">Jármű</string>
 
@@ -42,7 +45,7 @@
     <string name="btn_vehicle_trips">Utazások</string>
     <string name="btn_vehicle_services">Szervíz</string>
     <string name="btn_vehicle_parts">Alkatrészek</string>
-    <string name="btn_vehicle_other">Egyéb</string>
+    <string name="btn_vehicle_other">Egyebek</string>
     <string name="btn_save_trip">Utazás rögzítése</string>
     <string name="btn_exit">Kilépés</string>
     <string name="btn_confirm">Megerősít</string>
@@ -54,6 +57,7 @@
     <string name="btn_add_part">Alkatrész hozzáadása</string>
     <string name="btn_yes">Igen</string>
     <string name="btn_no">Nem</string>
+    <string name="btn_sign_out">Kijelentkezés</string>
 
     <string name="vehicle_name">Jármű beceneve</string>
     <string name="vehicle_licence">Rendszám</string>
@@ -79,6 +83,7 @@
     <string name="error_empty_pass">A jelszó nem lehet üres!</string>
     <string name="error_password_match">A jelszavak nem egyeznek.</string>
     <string name="error_password">A beírt jelszó hibás.</string>
+    <string name="error_no_password">Szenzitív adatok módosításához add meg a jelenlegi jelszavad.</string>
     <string name="error_blank_field">A mező nem lehet üres!</string>
     <string name="error_only_digits">A mező csak számokat tartalmazhat!</string>
     <string name="error_fuel_type">A mező rossz értéket tartalmaz!</string>
@@ -116,6 +121,7 @@
     <string name="app_bar_title_selected_vehicle">Választott jármű</string>
     <string name="app_bar_title_record_trip">Utazás rögzítése</string>
     <string name="app_bar_title_statistics">Jármű statisztikák</string>
+    <string name="app_bar_title_modify_profile">Profil módosítása</string>
 
     <string name="fuel_type_diesel">Dízel</string>
     <string name="fuel_type_petrol">Benzin</string>
@@ -129,6 +135,8 @@
 
     <string name="dialog_title_unsaved_data">Nem mentett adatok</string>
     <string name="dialog_description_msg">Biztosan ki akarsz lépni mentés nélkül?</string>
+    <string name="dialog_title_add">Hozzáadás</string>
+
     <string name="avg_title_consumption">Átlagos fogyasztás</string>
     <string name="avg_title_refuel">Átlagos tankolás</string>
     <string name="avg_title_distance">Átlagos utazás</string>
@@ -137,4 +145,13 @@
     <string name="list_title_jobs">Elvégzett munkák</string>
     <string name="list_title_parts">Cserélt alkatrészek</string>
 
+    <string name="misc_type_insurance">Biztosítás</string>
+    <string name="misc_type_vignette">Matrica</string>
+    <string name="misc_type_weight_tax">Súlyadó</string>
+    <string name="misc_insurance_casco">CASCO</string>
+    <string name="misc_insurance_kgfb">Kötelező biztosítás</string>
+    <string name="misc_vignette_regional_type_country_weekly">Országos - Heti (10 napos)</string>
+    <string name="misc_vignette_regional_type_country_monthly">Országos - Havi</string>
+    <string name="misc_vignette_regional_type_country_yearly">Országos - Éves</string>
+    <string name="misc_vignette_regional_type_county_yearly">Megyei - Éves</string>
 </resources>

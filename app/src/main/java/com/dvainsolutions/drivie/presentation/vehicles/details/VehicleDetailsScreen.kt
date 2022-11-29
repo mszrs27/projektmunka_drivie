@@ -211,7 +211,7 @@ fun VehicleDetailsScreen(
                             CustomTextField(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.carName,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_name)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_name)) },
                                 onValueChangeFunction = viewModel::onCarNameChange,
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next
@@ -221,7 +221,7 @@ fun VehicleDetailsScreen(
                             CustomTextField(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.licence,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_licence)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_licence)) },
                                 onValueChangeFunction = viewModel::onLicenceChange,
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next
@@ -232,7 +232,7 @@ fun VehicleDetailsScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.brand,
                                 onValueChangeFunction = viewModel::onBrandChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_brand)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_brand)) },
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next
                                 ),
@@ -242,7 +242,7 @@ fun VehicleDetailsScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.model,
                                 onValueChangeFunction = viewModel::onModelChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_model)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_model)) },
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next
                                 ),
@@ -252,7 +252,7 @@ fun VehicleDetailsScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.engine,
                                 onValueChangeFunction = viewModel::onEngineChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_engine)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_engine)) },
                                 trailingIcon = {
                                     val superscript = SpanStyle(
                                         baselineShift = BaselineShift.Superscript,
@@ -273,9 +273,9 @@ fun VehicleDetailsScreen(
                             Spacer(modifier = Modifier.height(20.dp))
                             CustomTextField(
                                 modifier = Modifier.fillMaxWidth(),
-                                text = uiState.fuelSize,
+                                text = uiState.consumption,
                                 onValueChangeFunction = viewModel::onConsumptionChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_consumption)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_consumption)) },
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next,
                                     keyboardType = KeyboardType.Number
@@ -286,14 +286,11 @@ fun VehicleDetailsScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.mileage,
                                 onValueChangeFunction = viewModel::onMileageChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_mileage)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_mileage)) },
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next,
                                     keyboardType = KeyboardType.Number
-                                ),
-                                trailingIcon = {
-                                    Text(text = "km")
-                                },
+                                )
                             )
                             Spacer(modifier = Modifier.height(20.dp))
                             CustomSpinner(
@@ -306,14 +303,11 @@ fun VehicleDetailsScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = uiState.fuelSize,
                                 onValueChangeFunction = viewModel::onFuelSizeChange,
-                                placeholder = { Text(text = stringResource(id = R.string.vehicle_fuel_size)) },
+                                label = { Text(text = stringResource(id = R.string.vehicle_fuel_size)) },
                                 keyboardOptions = KeyboardOptions(
                                     imeAction = ImeAction.Next,
                                     keyboardType = KeyboardType.Number
-                                ),
-                                trailingIcon = {
-                                    Text(text = "L")
-                                },
+                                )
                             )
                             Spacer(modifier = Modifier.height(20.dp))
                             DateTimePicker(
@@ -330,7 +324,7 @@ fun VehicleDetailsScreen(
                             Spacer(modifier = Modifier.height(20.dp))
                             DateTimePicker(
                                 time = uiState.insurance,
-                                placeholderRes = R.string.vehicle_insurance,
+                                label = { Text(text = stringResource(id = R.string.vehicle_insurance)) },
                                 onTimeChange = viewModel::onInsuranceChange
                             )
                             Spacer(modifier = Modifier.height(30.dp))
